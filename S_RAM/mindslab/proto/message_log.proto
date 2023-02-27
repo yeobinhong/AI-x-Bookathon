@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package maum.brain;
+
+enum LogLevel {
+    NOTSET = 0;
+    DEBUG = 1;
+    INFO = 2;
+    WARNING = 3;
+    ERROR = 4;
+    CRITICAL = 5;
+}
+
+message LogRequest {
+    LogLevel log_level = 1;
+    string msg = 2;
+}
+
+message LogResponse {
+    bool done = 1;
+}
+
+service MessageLogger {
+    rpc LogMessage(LogRequest) returns (LogResponse);
+}

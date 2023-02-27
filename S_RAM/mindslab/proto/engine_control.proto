@@ -1,0 +1,33 @@
+syntax="proto3";
+
+package maum.brain;
+
+enum EngineStatus {
+    IDLE = 0;
+    TRAINING = 1;
+    INFERRING = 2;
+	INVALID_REQUEST = 15;
+}
+
+enum EngineControl {
+    CHECK_STATUS = 0;
+    START_TRAINING = 1;
+    START_INFERRING = 2;
+    STOP_OPERATION = 3;
+}
+
+message ControlRequest {
+    EngineControl instruction = 1;
+    string config_path = 2;
+	string infer_text = 3;
+}
+
+message ControlResponse {
+    EngineStatus status = 1;
+    string msg = 2;
+    repeated string infer_results = 3;
+}
+
+service EngineController {
+    rpc ControlEngine(ControlRequest) returns (ControlResponse);
+}

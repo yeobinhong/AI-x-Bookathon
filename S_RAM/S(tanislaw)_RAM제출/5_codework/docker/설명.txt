@@ -1,0 +1,11 @@
+changeformat.py => src파일을 res형식으로 바꾸어줌(전처리, 필요없는줄제거)
+
+create corp.py => res에 있는 파일들을 합쳐서 corp.csv생성
+
+이 corp가 사전 입력임
+
+search.py db 초기화 및 서칭 시간이 좀 걸림
+
+search without init py 서칭만 가능 초기화 불가
+
+python search.py --corpus_dir corp.csv --num_samples 50 --query "새로운 희망"

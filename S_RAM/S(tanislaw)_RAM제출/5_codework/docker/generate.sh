@@ -1,0 +1,1 @@
+python search.py --corpus_dir corp.csv --num_samples 100 --query "담대"

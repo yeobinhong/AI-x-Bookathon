@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package gpt.nsg;
+
+service GptTextGen{
+    rpc Gen(InputText) returns (Outputs);
+}
+
+message InputText{
+    string context = 1;
+    string subject = 2;
+    int32 count = 3;
+}
+
+message Outputs{
+    string gentext = 1;
+}

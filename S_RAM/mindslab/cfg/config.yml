@@ -1,0 +1,32 @@
+# Configuration for AI x bookathon.
+# MindsLab, Inc.
+# Feel free to adjust below parameters and experiment with it. :)
+
+ #config 파일 여러개 만들고 scripts에서 config-path 수정해서 사용하기
+
+# 1. Training-related params
+model_name: "test_yb1"    # trained model will be created under `models/{run_name}`
+data_dir: "data/sample"
+init_ckpt: ""               # blank(""): pretrained ckpt will be used
+
+input_token_length: 384
+learning_rate: 4e-4
+batch_size: 1
+accumulate_gradients: 10
+
+max_step: 1e5
+save_every: 2e2
+sample_every: 1e2
+num_samples_train: 3
+sample_prompt_train: ""     # blank(""): the first token will be sampled randomly
+
+ 
+# 2. Inference-related params
+checkpoint_path: ""    # checkpoint path under 'models' dir. ex) sample/model-200
+sampling_method: "top_p"    # top_k, top_p, or your custom method. check 'custom_component/sampler.py'
+top_k: 10
+top_p: 0.995
+temperature: 1
+infer_token_length: 120
+num_max_sentences: 10
+num_samples: 3              # how many samples to generate
